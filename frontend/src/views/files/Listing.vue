@@ -45,6 +45,13 @@
             :label="$t('buttons.delete')"
             show="delete"
           />
+          <action
+            v-if="headerButtons.unzip"
+            id="unzip-button"
+            icon="unarchive"
+            :label="$t('buttons.unzip')"
+            show="unzip"
+          />
         </template>
 
         <action
@@ -112,6 +119,12 @@
         icon="delete"
         :label="$t('buttons.delete')"
         show="delete"
+      />
+      <action
+        v-if="headerButtons.unzip"
+        icon="unarchive"
+        :label="$t('buttons.unzip')"
+        show="unzip"
       />
     </div>
 
@@ -375,6 +388,7 @@ export default {
         share: this.selectedCount === 1 && this.user.perm.share,
         move: this.selectedCount > 0 && this.user.perm.rename,
         copy: this.selectedCount > 0 && this.user.perm.create,
+        unzip: this.selectedCount === 1 && this.isArchive(this.req.items[this.selected[0]].extension) && this.user.perm.unzip,
       };
     },
     isMobile() {
@@ -892,6 +906,10 @@ export default {
       // Set the number of displayed items
       this.showLimit = showQuantity > totalItems ? totalItems : showQuantity;
     },
+    isArchive(ext) {
+      const zip_exts = [".zip",".bz2",".br",".tbz2",".gz",".xz",".rar",".tar"]; //可扩展
+      return zip_exts.indexOf(ext) > -1;
+    }
   },
 };
 </script>

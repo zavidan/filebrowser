@@ -28,6 +28,7 @@ import Upload from "./Upload.vue";
 import ShareDelete from "./ShareDelete.vue";
 import Sidebar from "../Sidebar.vue";
 import DiscardEditorChanges from "./DiscardEditorChanges.vue";
+import Unzip from "./Unzip.vue";
 import { mapGetters, mapState } from "vuex";
 import buttons from "@/utils/buttons";
 
@@ -50,6 +51,7 @@ export default {
     ShareDelete,
     Sidebar,
     DiscardEditorChanges,
+    Unzip,
   },
   data: function () {
     return {
