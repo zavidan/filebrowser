@@ -32,3 +32,6 @@ build/
 
 /frontend/dist/*
 !/frontend/dist/.gitkeep
+
+.direnv
+.devenv
